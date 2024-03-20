@@ -37,9 +37,5 @@
                 </tbody>
             </table>
         </div>
-
-
-
-
     </header>
 @endsection

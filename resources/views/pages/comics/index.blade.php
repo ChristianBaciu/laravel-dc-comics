@@ -3,7 +3,6 @@
 
 {{-- imposta il titolo della pagina ( @yield('title') ) --}}
 @section('title', 'Inizio pagina')
-
 @section('header')
     <header>
         <div class="text-center m-5">
@@ -36,7 +35,7 @@
                     <tr>
                         <td class="border border-1 grandezza">{{$comic->id}}</td>
                         <td class="border border-1 grandezza">{{$comic->title}}</td>
-                        <td class="border border-1 grandezza-descizione">{{$comic->description}}</td>
+                        <td class="border border-1">          {{$comic->description}}</td>
                         <td class="border border-1 grandezza">{{$comic->thumb}}</td>
                         <td class="border border-1 grandezza">{{$comic->price}}</td>
                         <td class="border border-1 grandezza">{{$comic->series}}</td>
