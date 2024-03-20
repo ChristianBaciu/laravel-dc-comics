@@ -10,7 +10,7 @@ class Comic extends Model
     use HasFactory;
 
     // fillable array
-    public $fillable = ['title', 'description', 'price', 'series', 'sale_date', 'type'];
+    protected $fillable = ['title', 'description','thumb', 'price', 'series', 'sale_date', 'type'];
 
     // (EROORE) per disabilitare l'aggiornamento delle colonne 'updated_at' e 'created_at'
     public $timestamps = false;

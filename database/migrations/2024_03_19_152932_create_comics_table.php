@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string("title", 50); //  max 50 caratteri
             $table->text("description"); // testo
+            $table->string("thumb"); // testo
             $table->decimal("price", 5, 2); // 100.99
             $table->string("series", 100); //  max 100 caratteri
             $table->date("sale_date"); // 19/03/2024

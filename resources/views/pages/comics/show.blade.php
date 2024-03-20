@@ -6,6 +6,15 @@
 
 @section('header')
     <header>
+        <h1>Pagina 3</h1>
+
+        <p>{{$comic->title}}</p>
+        <p>{{$comic->description}}</p>
+        <p>{{$comic->thumb}}</p>
+        <p>{{$comic->price}}</p>
+        <p>{{$comic->series}}</p>
+        <p>{{$comic->sale_date}}</p>
+        <p>{{$comic->type}}</p>
 
     </header>
 @endsection

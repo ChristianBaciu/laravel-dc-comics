@@ -9,10 +9,12 @@ use Illuminate\Http\Request;
 class PageController extends Controller
 {
     public function index(){
+        // return view('pages.comics.index');
+        // recuparare i records del DB
+        $comics = Comic::All(); //SELECT * FROM COMICS
 
-        // recupera i record dal DB
-        $comics = Comic::All();
+        // passare i records alla view
+        return view( 'pages.comics.index', compact( 'comics' ) );
 
-        return view('welcome', compact('comics') );
     }
 }
