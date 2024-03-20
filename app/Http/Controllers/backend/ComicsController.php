@@ -32,6 +32,13 @@ class ComicsController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'title' => 'required|unique:posts|max:255',
+        ]);
+
+
+
+
         // dd($request);
         $form_data = $request->all();
         $new_comic = new Comic();
@@ -58,6 +65,7 @@ class ComicsController extends Controller
     {
         $comic = Comic::findOrFail($id);
         return view('pages.comics.edit', compact('comic'));
+        // compact recupera i dati
     }
 
     /**

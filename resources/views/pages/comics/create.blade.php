@@ -10,6 +10,19 @@
 
         <div class="container">
 
+            @if (@error->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{$error->title }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
+
+
+
             <form action="{{route('comics.store')}}" method="POST">
                 {{-- token di laravel --}}
                 @csrf
