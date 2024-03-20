@@ -32,12 +32,25 @@ class ComicsController extends Controller
      */
     public function store(Request $request)
     {
+        // @if ($errors->any())
+        //     <div class="alert alert-danger">
+        //         <ul>
+        //             @foreach ($errors->all() as $error)
+        //                 <li>{{$error}}</li>
+        //             @endforeach
+        //         </ul>
+        //     </div>
+        // @endif
+
         $request->validate([
-            'title' => 'required|unique:posts|max:255',
+            'title' => 'required',
+            'description' => 'required',
+            'thumb' => 'required',
+            'price' => 'required',
+            'series' => 'required',
+            'sale_date' => 'required',
+            'type' => 'required',
         ]);
-
-
-
 
         // dd($request);
         $form_data = $request->all();

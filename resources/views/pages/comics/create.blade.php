@@ -10,18 +10,18 @@
 
         <div class="container">
 
-            @if (@error->any())
+            {{-- $errors variabile generata da Laravel --}}
+            {{-- any controllare se è presente un errore nel dato --}}
+            @if ($errors->any())
                 <div class="alert alert-danger">
                     <ul>
+                        {{-- se è presente un errore verrà eseguito il foreach --}}
                         @foreach ($errors->all() as $error)
-                            <li>{{$error->title }}</li>
+                            <li>{{$error}}</li>
                         @endforeach
                     </ul>
                 </div>
             @endif
-
-
-
 
             <form action="{{route('comics.store')}}" method="POST">
                 {{-- token di laravel --}}
