@@ -13,7 +13,6 @@
             crea
         </a>
 
-
         {{-- {{dd($comics)}} --}}
 
         <div class="table-responsive container">
