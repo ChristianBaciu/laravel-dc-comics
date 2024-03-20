@@ -20,6 +20,7 @@
             <table class="table table-primary">
                 <thead>
                     <tr>
+                        <th scope="col">n.</th>
                         <th scope="col">title</th>
                         <th scope="col">description</th>
                         <th scope="col">thumb</th>
@@ -27,12 +28,14 @@
                         <th scope="col">series</th>
                         <th scope="col">sale_date</th>
                         <th scope="col">type</th>
+                        <th scope="col">azioni</th>
                     </tr>
                 </thead>
                 <tbody>
 
                     @foreach ($comics as $comic)
                         <tr>
+                            <td>{{$comic->id}}</td>
                             <td>{{$comic->title}}</td>
                             <td>{{$comic->description}}</td>
                             <td>{{$comic->thumb}}</td>
@@ -40,6 +43,18 @@
                             <td>{{$comic->series}}</td>
                             <td>{{$comic->sale_date}}</td>
                             <td>{{$comic->type}}</td>
+                            <td>
+                                <button class="btn btn-primary">modifica</button>
+
+                                <form action="{{route('comics.destroy', $comic->id)}}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class="btn btn-danger" type="submit">DISTRUGGI</button>
+                                </form>
+
+
+                            </td>
+
                         </tr>
                     @endforeach
 
