@@ -16,7 +16,7 @@ class ComicsController extends Controller
         // recupera i record dal DB
         $comics = Comic::all();
 
-        return view('pages.comics.index', compact('comics') );
+        return view('pages.comics.index', compact('comics'));
     }
 
     /**
@@ -48,7 +48,7 @@ class ComicsController extends Controller
     {
         $comic = Comic::findOrFail($id);
 
-        return view('pages.comics.show', compact('comic') );
+        return view('pages.comics.show', compact('comic'));
     }
 
     /**
@@ -56,7 +56,8 @@ class ComicsController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $comic = Comic::findOrFail($id);
+        return view('pages.comics.edit', compact('comic'));
     }
 
     /**
@@ -64,7 +65,11 @@ class ComicsController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        // dd($request);
+        $form_data = $request->all();
+        $comic = Comic::findOrFail($id);
+        $comic->update($form_data);
+        return redirect()->route('comics.show', ['comic' => $comic->id]);
     }
 
     /**
@@ -72,6 +77,9 @@ class ComicsController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $comic = Comic::findOrFail($id);
+        $comic->delete();
+
+        return redirect()->route('comics.index');
     }
 }

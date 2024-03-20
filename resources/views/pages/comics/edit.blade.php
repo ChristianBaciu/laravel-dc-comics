@@ -6,13 +6,14 @@
 
 @section('header')
     <header>
-        <h1>Create</h1>
+        <h1>Edit</h1>
 
         <div class="container">
 
-            <form action="{{route('comics.store')}}" method="POST">
+            <form action="{{route('comics.update', $comic->id)}}" method="POST">
                 {{-- token di laravel --}}
                 @csrf
+                @method('PUT')
 
                 <div class="mb-3">
                     <label for="title" class="form-label">titolo</label>
@@ -20,7 +21,10 @@
                     type="text"
                     class="form-control"
                     name="title"
-                    id="title">
+                    id="title"
+
+                    value="{{ old('title') ?? $comic->title }}" required>
+                    {{-- per prendere la vecchia informazione --}}
                 </div>
 
                 <div class="mb-3">
@@ -30,6 +34,7 @@
                     id="description"
                     class="form-control"
                     rows="1">
+                    {{ old('description') ?? $comic->description }}>
                     </textarea>
                 </div>
 
@@ -39,7 +44,10 @@
                     type="text"
                     class="form-control"
                     name="thumb"
-                    id="thumb">
+                    id="thumb"
+                    value="{{ old('thumb') ?? $comic->thumb }}" required>
+                    {{-- per prendere la vecchia informazione --}}
+
                 </div>
 
                 <div class="mb-3">
@@ -48,7 +56,10 @@
                     type="number"
                     class="form-control"
                     name="price"
-                    id="price">
+                    id="price"
+                    value="{{ old('price') ?? $comic->price }}" required>
+                    {{-- per prendere la vecchia informazione --}}
+
                 </div>
 
                 <div class="mb-3">
@@ -57,7 +68,10 @@
                     type="text"
                     class="form-control"
                     name="series"
-                    id="series">
+                    id="series"
+                    value="{{ old('series') ?? $comic->series }}" required>
+                    {{-- per prendere la vecchia informazione --}}
+
                 </div>
 
                 <div class="mb-3">
@@ -66,7 +80,10 @@
                     type="date"
                     class="form-control"
                     name="sale_date"
-                    id="sale_date">
+                    id="sale_date"
+                    value="{{ old('sale_date') ?? $comic->sale_date }}" required>
+                    {{-- per prendere la vecchia informazione --}}
+
                 </div>
 
                 <div class="mb-3">
@@ -75,7 +92,10 @@
                     type="text"
                     class="form-control"
                     name="type"
-                    id="type">
+                    id="type"
+                    value="{{ old('type') ?? $comic->type }}" required>
+                    {{-- per prendere la vecchia informazione --}}
+
                 </div>
 
                 <button type="submit" class="btn btn-primary">
