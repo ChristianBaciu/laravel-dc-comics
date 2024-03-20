@@ -3,12 +3,11 @@
 
 {{-- imposta il titolo della pagina ( @yield('title') ) --}}
 @section('title', 'Inizio pagina 2')
-
 @section('header')
     <header>
-        <h1>Create</h1>
+        <h1 class="text-center mt-5">Create</h1>
 
-        <div class="container">
+        <div class="container w-50">
 
             {{-- $errors variabile generata da Laravel --}}
             {{-- any controllare se è presente un errore nel dato --}}
@@ -24,11 +23,10 @@
             @endif
 
             <form action="{{route('comics.store')}}" method="POST">
-                {{-- token di laravel --}}
-                @csrf
+                @csrf {{-- token --}}
 
                 <div class="mb-3">
-                    <label for="title" class="form-label">titolo</label>
+                    <label for="title" class="form-label">Titolo</label>
                     <input
                     type="text"
                     class="form-control"
@@ -37,7 +35,7 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="description" class="form-label">descrizione</label>
+                    <label for="description" class="form-label">Descrizione</label>
                     <textarea
                     name="description"
                     id="description"
@@ -47,7 +45,7 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="thumb" class="form-label">img</label>
+                    <label for="thumb" class="form-label">Immagine</label>
                     <input
                     type="text"
                     class="form-control"
@@ -56,7 +54,7 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="price" class="form-label">prezzo</label>
+                    <label for="price" class="form-label">Prezzo</label>
                     <input
                     type="number"
                     class="form-control"
@@ -65,7 +63,7 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="series" class="form-label">serie</label>
+                    <label for="series" class="form-label">Serie</label>
                     <input
                     type="text"
                     class="form-control"
@@ -74,7 +72,7 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="sale_date" class="form-label">data</label>
+                    <label for="sale_date" class="form-label">Data</label>
                     <input
                     type="date"
                     class="form-control"
@@ -92,7 +90,7 @@
                 </div>
 
                 <button type="submit" class="btn btn-primary">
-                    crea
+                    Crea
                 </button>
 
             </form>
